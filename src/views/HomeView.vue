@@ -29,22 +29,82 @@
             <v-row>
               <v-col cols="12" sm="6">
                 <div class="egg">
-                  <!-- <v-img src="" max-height="300"></v-img>    Here you can put a small little icon ,pref png-->
+                  <v-img src="cbtree.png" max-height="300"></v-img>
                 </div>
               </v-col>
               <v-col cols="12" sm="6">
                 <h5 class="mt-16">About me</h5>
                 <div style="width: 120px">
-                  <v-slider v-model="slider2" color="green" label="track-color">
+                  <v-slider v-model="slider2" color="green">
 
                   </v-slider>
                 </div>
                 <h4 class="mt-n4">I am a create web designer</h4>
                 <h4>and developer</h4>
-                <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquet, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam aliquet, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet nisl.</p>
+                <p class="text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquet, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam aliquet, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet nisl.</p>
+              <br />
+              <p class="text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquet, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nunc ut aliquam aliquet, nunc nisl aliquet nisl, eget aliquam nisl nisl sit amet nisl.</p>
+              <v-btn tile dark color="green" class="mt-4">
+                Download Resume
+              </v-btn> 
+            </v-col>
+            </v-row>  
+          </div>
+        </v-col>
+        <div class="text-center mt-4">
+          <h2>What we do</h2>
+          <div style="width: 120px; margin: 0 auto">
+            <v-slider v-model="slider2" color="green"></v-slider>
+          </div>
+        </div>
+        <v-col cols="12" class="padd" id="portfolio">
+          <div class="first" id="project">
+            <v-row>
+              <v-col cols="12">
+                <div class="child">
+                  <v-btn icon="fas fa-laptop" color="green" class="text-white"></v-btn>
+                  <h3 class="ml-3 mt-4">Web Design</h3>
+                  <p class="text-grey ml-3 mt-4 text-caption">Lorem ipsum dolor sit amet <br /> , consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div class="child">
+                  <v-btn icon="fas fa-mobile" color="green" class="text-white"></v-btn>
+                  <h3 class="ml-3 mt-4">App Design</h3>
+                  <p class="text-grey ml-3 mt-4 text-caption">Lorem ipsum dolor sit amet <br /> , consectetur adipiscing elit.
+                  </p>
+                </div>
+                <div class="child">
+                  <v-btn icon="fas fa-camera" color="green" class="text-white"></v-btn>
+                  <h3 class="ml-3 mt-4">Photography</h3>
+                  <p class="text-grey ml-3 mt-4 text-caption">Lorem ipsum dolor sit amet <br /> , consectetur adipiscing elit.
+                  </p>
+                </div>
               </v-col>
             </v-row>
+            <v-divider></v-divider>
           </div>
+        </v-col>
+        <v-col cols="12" sm="12" id="services">
+          <div class="d-flex justify-center mb-6">
+            <v-btn color="green" class="mr-2">All</v-btn>
+            <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
+            <v-btn class="mr-2" variant="tonal">App Design</v-btn>
+            <v-btn class="mr-2" variant="tonal">Photography</v-btn>
+            <v-btn variant="tonal">Illustration</v-btn>
+          </div>
+        </v-col>
+        <v-col cols="12" class="imgHover">
+          <v-row class="fill-height" align="center" justify="center">
+            <template v-for="(item, i) in items" :key="i">
+              <v-col cols="12" md="4">
+                <v-hover v-slot="{isHovering, props}">
+                  <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
+                    <v-img :src="item.img" height="225px"></v-img>
+                  </v-card>
+                </v-hover>
+              </v-col>
+            </template>
+          </v-row>
         </v-col>
     </v-container>
   </v-app>
@@ -63,7 +123,10 @@ export default defineComponent({
        slider2: 50,
 
        items: [
-        {img: "portrait.jpg"}
+        {img: "portrait.jpg",},
+        {img: "front.jpg",},
+        {img: "rearqtr.jpg",},
+        {img: "subridge.jpg",}
        ]
 
     }
@@ -121,5 +184,40 @@ export default defineComponent({
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
+
+.first {
+  width: 100%;
+  height: 280px;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+
+.child {
+  display: inline-block;
+  padding: 2rem 1rem;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.imgHover {
+  padding: 0 200px;
+}
+
+.pre {
+  width: 100%;
+  height: 380px;
+  text-align: center;
+  padding: 0 200px;
+  background-color: white;
+}
+
+.hire {
+  width: 100%;
+  height: 200px;
+  padding: 0 200px;
+  background-color: white;
+  margin-top: -24px;
+}
 
 </style>
