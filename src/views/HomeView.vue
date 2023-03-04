@@ -105,6 +105,67 @@
               </v-col>
             </template>
           </v-row>
+          <div class="d-flex justify-center mb-6">
+            <v-btn color="green" class="mt-4">Load More</v-btn>
+          </div>
+        </v-col>
+        <v-col cols="12" id="page">
+          <div class="pre">
+            <v-row>
+              <v-col cols="12" sm="4">
+                <v-card class="mw-auto" max-width="344" height="">
+                  <v-img src="portrait.jpg" height="200px" cover></v-img>
+                  <v-card-title>We provide you the best</v-card-title>
+                  <v-card-subtitle>
+                    By AAE IdeaPro | 06 Sep 2022
+                  </v-card-subtitle>
+                  <v-card-text>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Ut dolorum, aliquam nisi autem quas sequi fugiat.
+                  </v-card-text>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4">
+                <v-card class="mw-auto" max-width="344" height="">
+                  <v-img src="portrait.jpg" height="200px" cover></v-img>
+                  <v-card-title>We provide you the best</v-card-title>
+                  <v-card-subtitle>
+                    By AAE IdeaPro | 06 Sep 2022
+                  </v-card-subtitle>
+                  <v-card-text>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Ut dolorum, aliquam nisi autem quas sequi fugiat.
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </div>
+        </v-col>
+        <v-col cols="12" id="biog">
+          <div class="hire">
+            <v-row>
+              <v-col cols="12" sm="8">
+                <h1 class="mt-9">Hire me for your project today</h1>
+                <p class="text-grey">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                   Ut dolorum, aliquam nisi autem quas sequi fugiat.
+                </p>
+              </v-col>
+              <v-col>
+                <v-btn color="green" class="mt-15">Hire Me</v-btn>
+              </v-col>
+            </v-row>
+          </div>
+        </v-col>
+        <v-col cols="12" sm="12" class="px-16" id="contact">
+          <v-row>
+            <div class="child">
+              <h1>Contact info.</h1>
+              <v-btn icon="fas fa-map-marker-alt" class="mt-10" variant="outlined"></v-btn>
+              <span class="text-caption">Your street SYO, Your Area Dream</span>
+              <v-btn icon="fas fa-phone-alt" cl
+            </div>
+          </v-row>
         </v-col>
     </v-container>
   </v-app>
