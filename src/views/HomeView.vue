@@ -161,13 +161,37 @@
           <v-row>
             <div class="child">
               <h1>Contact info.</h1>
-              <v-btn icon="fas fa-map-marker-alt" class="mt-10" variant="outlined"></v-btn>
-              <span class="text-caption">Your street SYO, Your Area Dream</span>
-              <v-btn icon="fas fa-phone-alt" cl
+              <v-btn icon="fas fa-map-marker-alt" class="mt-10" variant="outlined"></v-btn><br />
+              <span class="text-caption">Your street SYO, Your Area Dream</span><br />
+              <v-btn icon="fas fa-phone-alt" class="mt-10" variant="outlined"></v-btn><br />
+              <span class="text-caption">00235 -6547</span><br />
+              <span class="text-caption">00235 -6547</span><br />
+              <v-btn icon="fas fa-envelope" class="mt-10" variant="outlined"></v-btn><br />
+              <span class="text-caption">sergiogonzalezyes@gmail.com</span><br />
+              <span class="text-caption">sergiogonzalezyes@gmail.com</span><br />
             </div>
+            <v-col cols="12" sm="8">
+              <h1 class="mt-8">Send your message</h1>
+              <v-divider></v-divider>
+              <span class="text-caption">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ut dolorum, aliquam nisi autem quas sequi fugiat.
+              </span>
+              <v-row class="mt-10">
+                <v-col>
+                  <v-text-field label="Name" persistent-hint variant="outlined"></v-text-field>
+                </v-col>
+                <v-col>
+                  <v-text-field label="Phone No" persistent-hint variant="outlined"></v-text-field>
+                </v-col>
+              </v-row>
+              <v-textarea label="Message" persistent-hint variant="outlined"></v-textarea>
+              <v-btn color="green" class="mt-2">Submit Now</v-btn>
+            </v-col>
           </v-row>
         </v-col>
     </v-container>
+    <FooterView />
   </v-app>
 </template>
 
@@ -176,6 +200,7 @@ import { defineComponent } from 'vue';
 
 // Component
 import NavBar from '@/components/NavBar.vue';
+import FooterView from '@/components/FooterView.vue';
 
 export default defineComponent({
   name: 'HomeView',
@@ -193,7 +218,8 @@ export default defineComponent({
     }
   },
   components: {
-    NavBar
+    NavBar,
+    FooterView
 },
 });
 </script>
