@@ -98,7 +98,7 @@
             <template v-for="(item, i) in items" :key="i">
               <v-col cols="12" md="4">
                 <v-hover v-slot="{isHovering, props}">
-                  <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
+                  <v-card href="https://weather-vue-coral.vercel.app/" :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
                     <v-img :src="item.img" height="225px"></v-img>
                   </v-card>
                 </v-hover>
