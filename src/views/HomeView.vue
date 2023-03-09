@@ -9,7 +9,7 @@
                 <h1 class="text-grey">Hello,</h1>
                 <h1 class="text-white">I'm Sergio Gonzalez</h1>
                 <span class="text-grey">I'm a full stack developer</span><br />
-                <v-btn tile dark class="text-green mt-8" variant="outlined">Contact me</v-btn>" 
+                <v-btn tile dark class="text-green mt-8" variant="outlined">Contact me</v-btn> 
               </div>
               </v-col>
               <v-col cols="2">
