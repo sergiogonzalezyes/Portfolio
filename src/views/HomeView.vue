@@ -85,30 +85,33 @@
           </div>
         </v-col>
         <v-col cols="12" sm="12" id="services">
-          <div class="d-flex justify-center mb-6">
-            <v-btn color="green" class="mr-2">All</v-btn>
-            <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
-            <v-btn class="mr-2" variant="tonal">App Design</v-btn>
-            <v-btn class="mr-2" variant="tonal">Photography</v-btn>
-            <v-btn variant="tonal">Illustration</v-btn>
+      <div class="d-flex justify-center mb-6">
+        <v-btn color="green" class="mr-2" v-on:click="selectCategory('All')">All</v-btn>
+        <v-btn class="mr-2" variant="tonal" v-on:click="selectCategory('web-design')">Web Design</v-btn>
+        <v-btn class="mr-2" variant="tonal" v-on:click="selectCategory('database-design')">Database Design</v-btn>
+        <v-btn class="mr-2" variant="tonal" v-on:click="selectCategory('photography')">Photography</v-btn>
+      </div>
+    </v-col>
+    <v-col cols="12" class="imgHover">
+      <v-row class="fill-height" align="center" justify="center">
+        <div class="home">
+          <h1>My Projects</h1>
+          <div class="project-list">
+            <v-card v-for="project in filteredProjects" :key="project.title">
+              <h2>{{ project.title }}</h2>
+              <p>{{ project.description }}</p>
+              <div class="project-links">
+                <a :href="project.githubUrl" target="_blank">GitHub</a>
+                <a :href="project.liveUrl" target="_blank">Live</a>
+              </div>
+            </v-card>
           </div>
-        </v-col>
-        <v-col cols="12" class="imgHover">
-          <v-row class="fill-height" align="center" justify="center">
-            <template v-for="(item, i) in items" :key="i">
-              <v-col cols="12" md="4">
-                <v-hover v-slot="{isHovering, props}">
-                  <v-card href="https://weather-vue-coral.vercel.app/" :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
-                    <v-img :src="item.img" height="225px"></v-img>
-                  </v-card>
-                </v-hover>
-              </v-col>
-            </template>
-          </v-row>
-          <div class="d-flex justify-center mb-6">
-            <v-btn color="green" class="mt-4">Load More</v-btn>
-          </div>
-        </v-col>
+        </div>
+      </v-row>
+      <div class="d-flex justify-center mb-6">
+        <v-btn color="green" class="mt-4">Load More</v-btn>
+      </div>
+    </v-col>
         <v-col cols="12" id="page">
           <div class="pre">
             <v-row>
@@ -196,18 +199,39 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 // Component
 import NavBar from '@/components/NavBar.vue';
 import FooterView from '@/components/FooterView.vue';
+import { useMyProjects } from '@/store/myProjects'
 
 export default defineComponent({
   name: 'HomeView',
   setup() {
+
+    const store = useMyProjects();
+    const categories = ['All', 'Web Design', 'Database Design', 'Photography'];
+    let currentCategory = '';
+
+    const selectCategory = (category) => {
+      currentCategory = category.toLowerCase().replace(' ', '-');
+    }
+
+    const filteredProjects = computed(() => {
+      if (currentCategory === '') {
+        return store.projects;
+      } else {
+        return store.projects.filter(project => project.category.toLowerCase().replace(' ', '-') === currentCategory);
+      }
+    });
+
     return {
        slider2: 50,
-
+       categories,
+       currentCategory,
+       selectCategory,
+       filteredProjects,
        items: [
         {img: "portrait.jpg",},
         {img: "front.jpg",},
@@ -220,9 +244,11 @@ export default defineComponent({
   components: {
     NavBar,
     FooterView
-},
+  },
 });
 </script>
+
+
 <style scoped>
 
 .v-container {
