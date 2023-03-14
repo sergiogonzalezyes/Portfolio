@@ -92,26 +92,25 @@
         <v-btn class="mr-2" variant="tonal" v-on:click="selectCategory('photography')">Photography</v-btn>
       </div>
     </v-col>
-    <v-col cols="12" class="imgHover">
-      <v-row class="fill-height" align="center" justify="center">
-        <div class="home">
-          <h1>My Projects</h1>
-          <div class="project-list">
-            <v-card v-for="project in filteredProjects" :key="project.title">
-              <h2>{{ project.title }}</h2>
-              <p>{{ project.description }}</p>
+    <v-col cols="12" sm="12" id="page">
+  <div class="home">
+    <h1>My Projects</h1>
+      <v-row>
+        <v-col cols="12" sm="6" md="4" v-for="project in filteredProjects" :key="project.title">
+          <v-card class="mw-auto" max-width="344" height="">
+            <v-img :src="project.image" height="200px" cover></v-img>
+            <v-card-title>{{ project.title }}</v-card-title>
+            <v-card-subtitle>{{ project.category }}</v-card-subtitle>
+            <v-card-text>{{ project.description }}</v-card-text>
               <div class="project-links">
-                <a :href="project.githubUrl" target="_blank">GitHub</a>
-                <a :href="project.liveUrl" target="_blank">Live</a>
-              </div>
-            </v-card>
-          </div>
-        </div>
+              <a :href="project.githubUrl" target="_blank">GitHub</a>
+              <a :href="project.liveUrl" target="_blank">Live</a>
+            </div>
+          </v-card>
+        </v-col>
       </v-row>
-      <div class="d-flex justify-center mb-6">
-        <v-btn color="green" class="mt-4">Load More</v-btn>
-      </div>
-    </v-col>
+          </div>
+        </v-col>
         <v-col cols="12" id="page">
           <div class="pre">
             <v-row>

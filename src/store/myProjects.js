@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import projectImage from '@/assets/vueweather.png'
 
 export const useMyProjects = defineStore('myProjects', {
   state: () => ({
@@ -9,6 +10,7 @@ export const useMyProjects = defineStore('myProjects', {
         githubUrl: 'https://github.com/sergiogonzalezyes/weather-vue',
         liveUrl: 'https://weather-vue-coral.vercel.app/',
         category: 'web-design',
+        image: projectImage,
       },
       {
         title: 'Superhero Villain API App',
